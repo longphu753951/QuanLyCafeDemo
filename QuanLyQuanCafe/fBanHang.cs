@@ -161,8 +161,7 @@ namespace QuanLyQuanCafe
                 
                 if (drinkIDCache == 0)
                 {
-                    MessageBox.Show("Mời nhập món");
-                    return;
+                    throw new Exception("Mời chọn món");
                 }
                 if (idBill == -1)
                 {
@@ -178,16 +177,22 @@ namespace QuanLyQuanCafe
                 lblNgayHienTai.Text = b;
                 ShowBill(table.ID);
                 txtSoLuong.Text = "";
+                drinkIDCache = 0;
                 LoadTable();
             }
             catch(NullReferenceException)
             {
-                MessageBox.Show("Sai dữ liệu", "nhập sai dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mời chọn bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch(System.FormatException)
+            catch (System.FormatException)
             {
-                MessageBox.Show("Mời nhập số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void cbLoaiSanPham_SelectedIndexChanged(object sender, EventArgs e)
@@ -257,7 +262,7 @@ namespace QuanLyQuanCafe
                 double totalPrice = Convert.ToDouble(txttotalPrice.Text);
                 if (idBill != -1)
                 {
-                    if (MessageBox.Show("Bạn có muốn thanh toán chứ ?", "Thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có muốn thanh toán chứ ?", "Thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
                         BillDAO.Instance.CheckOutBill(idBill,(float)totalPrice);
                         ShowBill(table.ID);
@@ -284,7 +289,11 @@ namespace QuanLyQuanCafe
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-
+            DialogResult dRThoat = MessageBox.Show("Bạn có muốn đăng xuất không ?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dRThoat == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         #endregion

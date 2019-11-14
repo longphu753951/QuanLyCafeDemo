@@ -41,6 +41,7 @@ CREATE TABLE Bill
 	id INT IDENTITY PRIMARY KEY,
 	DateCheckIn DATE NOT NULL DEFAULT GETDATE(),
 	DateCheckOut DATE,
+	totalPrice FLOAT,
 	idTable INT NOT NULL,
 	status INT NOT NULL DEFAULT 0 --1:đã thanh toán, 0: chưa thanh toán
 	FOREIGN KEY(idTable) REFERENCES dbo.TableDrink(id)
@@ -68,9 +69,6 @@ END
 GO
 CREATE PROC USP_GetTableList
 AS SELECT * FROM dbo.TableDrink
-GO
-UPDATE dbo.TableDrink SET status = N'Có người' WHERE id = 9
-EXEC dbo.USP_GetTableList
 GO
 INSERT dbo.DrinkCategory
 (name)VALUES(N'Tà tữa')
@@ -292,5 +290,12 @@ BEGIN
 
 	IF(@count >0)
 		UPDATE dbo.TableDrink SET status = N'Trống' WHERE id = @idTable
+END
+GO
+CREATE PROC USP_InsertDrink
+@name NVARCHAR(100) , @idCategory int , @price FLOAT
+AS
+BEGIN
+	INSERT dbo.Drink(name,idCategory,price)VALUES( @name , @idCategory , @price )
 END
 GO

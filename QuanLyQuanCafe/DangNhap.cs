@@ -28,6 +28,7 @@ namespace QuanLyQuanCafe
             int a = int.Parse(screenWidth);
             int b = int.Parse(screenHeight);
             panelDangNhap.Location = new Point(a / 7, b /2-140);
+            
         }
         private bool Login(string userName, string password)
         {
@@ -52,9 +53,9 @@ namespace QuanLyQuanCafe
                 fBanHang banHang = new fBanHang();
                 this.Hide();
                 banHang.ShowDialog();
-                
-               
-          
+                this.Show();
+                txtDangNhap.Text = txtMK.Text = "";
+
             }
             else
                 MessageBox.Show("Thất bại");

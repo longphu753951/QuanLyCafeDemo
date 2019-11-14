@@ -275,5 +275,31 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Có lỗi khi sửa");
             }
         }
+
+        private void tcContainer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(tcContainer.SelectedTab.Name == "tabPage6")
+            {
+               
+                    fBanHang f = new fBanHang();
+                    f.ShowDialog();
+                    this.Close();
+            }
+        }
+
+        private void btnXoaCat_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtIDCat.Text);
+            if (CategoryDAO.Instance.DeleteDrinkCategory(id))
+            {
+                MessageBox.Show("Danh mục đã được xóa");
+                loadCategory();
+                loadCategoryForComboBox();
+
+
+            }
+            else
+                MessageBox.Show("Có lỗi khi xóa danh mục");
+        }
     }
 }

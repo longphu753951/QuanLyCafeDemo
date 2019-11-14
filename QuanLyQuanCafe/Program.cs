@@ -8,7 +8,7 @@ namespace QuanLyQuanCafe
 {
     static class Program
     {
-        public static int loaiChucVu = 1;
+        public static int loaiChucVu = 0;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,7 +18,7 @@ namespace QuanLyQuanCafe
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fBanHang());
+            Application.Run(new DangNhap());
         }
     }
 }

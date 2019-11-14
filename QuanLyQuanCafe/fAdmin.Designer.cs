@@ -73,6 +73,23 @@
             this.btnThemCat = new System.Windows.Forms.Button();
             this.btnSuaCat = new System.Windows.Forms.Button();
             this.btnXoaCat = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.ctnThongTinDoUong.SuspendLayout();
             this.flp2.SuspendLayout();
@@ -95,6 +112,13 @@
             this.flp7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtvCategory)).BeginInit();
             this.flp8.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.flowLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -414,6 +438,9 @@
             this.tcContainer.Controls.Add(this.tabPage1);
             this.tcContainer.Controls.Add(this.tabPage2);
             this.tcContainer.Controls.Add(this.tabPage4);
+            this.tcContainer.Controls.Add(this.tabPage3);
+            this.tcContainer.Controls.Add(this.tabPage5);
+            this.tcContainer.Controls.Add(this.tabPage6);
             this.tcContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcContainer.Location = new System.Drawing.Point(1, 0);
             this.tcContainer.Name = "tcContainer";
@@ -422,6 +449,7 @@
             this.tcContainer.Size = new System.Drawing.Size(1148, 469);
             this.tcContainer.TabIndex = 0;
             this.tcContainer.TabStop = false;
+            this.tcContainer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tcContainer_MouseClick);
             // 
             // tabPage4
             // 
@@ -581,6 +609,180 @@
             this.btnXoaCat.Text = "Xóa";
             this.btnXoaCat.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.flowLayoutPanel7);
+            this.tabPage3.Controls.Add(this.flowLayoutPanel5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1140, 431);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Bàn";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 34);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1140, 431);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Tài Khoản";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 34);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1140, 431);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "Thoát";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.dataGridView1);
+            this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel6);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(528, 401);
+            this.flowLayoutPanel5.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(525, 321);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanel6.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel6.Controls.Add(this.button1);
+            this.flowLayoutPanel6.Controls.Add(this.button2);
+            this.flowLayoutPanel6.Controls.Add(this.button3);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 330);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(525, 60);
+            this.flowLayoutPanel6.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 51);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.Location = new System.Drawing.Point(98, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 51);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Sửa";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button3.Location = new System.Drawing.Point(193, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 51);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Xóa";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flowLayoutPanel7.BackColor = System.Drawing.SystemColors.Window;
+            this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel9);
+            this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel10);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(537, 3);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(619, 409);
+            this.flowLayoutPanel7.TabIndex = 5;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.BackColor = System.Drawing.SystemColors.Window;
+            this.flowLayoutPanel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(593, 87);
+            this.flowLayoutPanel8.TabIndex = 0;
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.BackColor = System.Drawing.SystemColors.Window;
+            this.flowLayoutPanel9.Controls.Add(this.label6);
+            this.flowLayoutPanel9.Controls.Add(this.textBox2);
+            this.flowLayoutPanel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 99);
+            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(574, 75);
+            this.flowLayoutPanel9.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 16);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.label6.Size = new System.Drawing.Size(74, 33);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "ID";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(83, 16);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(443, 40);
+            this.textBox2.TabIndex = 1;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.BackColor = System.Drawing.SystemColors.Window;
+            this.flowLayoutPanel10.Controls.Add(this.label7);
+            this.flowLayoutPanel10.Controls.Add(this.textBox3);
+            this.flowLayoutPanel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 183);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(560, 87);
+            this.flowLayoutPanel10.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 33);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Tên: ";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(90, 16);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(444, 40);
+            this.textBox3.TabIndex = 1;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,6 +823,15 @@
             this.flp7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtvCategory)).EndInit();
             this.flp8.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
+            this.flowLayoutPanel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -672,5 +883,22 @@
         private System.Windows.Forms.Button btnThemCat;
         private System.Windows.Forms.Button btnSuaCat;
         private System.Windows.Forms.Button btnXoaCat;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
