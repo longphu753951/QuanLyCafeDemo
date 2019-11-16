@@ -266,7 +266,7 @@ namespace QuanLyQuanCafe
                     {
                         BillDAO.Instance.CheckOutBill(idBill,(float)totalPrice);
                         ShowBill(table.ID);
-
+                        BillDAO.Instance.UpdateBillAfterCheckOut(idBill);
                         lblNgayHienTai.Text = "";
                         txtTenBan.Text = "";
                         txtTinhTrang.Text = "";

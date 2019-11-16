@@ -49,6 +49,7 @@ namespace QuanLyQuanCafe
             string matKhau = txtMK.Text;
             if (Login(tenTK,matKhau))
             {
+                Program.userName = tenTK;
                 Program.loaiChucVu = AccountDAO.Instance.LoaiChucVu(tenTK);
                 fBanHang banHang = new fBanHang();
                 this.Hide();

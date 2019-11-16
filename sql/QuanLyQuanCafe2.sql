@@ -268,10 +268,10 @@ CREATE PROC USP_GetListBillByDate
 @checkIn DATE, @checkOut DATE
 AS
 BEGIN
-	SELECT b.id , b.totalPrice, b.DateCheckIn, b.DateCheckOut
-	FROM dbo.Bill AS b
+	SELECT b.id AS N'Mã Hóa Đơn', b.totalPrice, b.DateCheckIn, b.DateCheckOut
+	FROM dbo.Bill AS b 
 	WHERE DateCheckIN >= @checkIn AND b.DateCheckOut <= @checkOut
-	AND b.status =1
+	AND b.status = 1
 END
 GO
 CREATE TRIGGER UTG_DeleteBillInfo
@@ -299,4 +299,4 @@ BEGIN
 	INSERT dbo.Drink(name,idCategory,price)VALUES( @name , @idCategory , @price )
 END
 GO
-SELECT * FROM dbo.Bill
+SELECT status FROM dbo.TableDrink WHERE id = 1

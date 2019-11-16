@@ -29,5 +29,41 @@ namespace QuanLyQuanCafe.DAO
             }
             return tableList;
         }
+        public bool ThemBan(string name)
+        {
+            string query = "INSERT dbo.TableDrink(name)VALUES( N'" + name +"')";
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
+        public bool XoaBan(int id)
+        {
+            string query = string.Format("DELETE dbo.TableDrink WHERE id = {0}",id);
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
+        public bool CapNhatBan(int id, string name)
+        {
+            string query = string.Format("UPDATE dbo.TableDrink SET name = N'{0}' WHERE id = {1} ", name, id);
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
+        public int FindTableByName(string name)
+        {
+            try
+            {
+                string result = DataProvider.Instance.ExcuteScalar("SELECT id FROM dbo.TableDrink WHERE name LIKE N'%" + name + "%'").ToString();
+                return int.Parse(result);
+            }
+            catch (NullReferenceException)
+            {
+                return 0;
+            }
+        }
+        public string KiemTraTinhTrang(int id)
+        {
+            string query = string.Format("SELECT status FROM dbo.TableDrink WHERE id = {0} ", id);
+            string result = DataProvider.Instance.ExcuteScalar(query).ToString();
+            return result;
+        }
     }
 }

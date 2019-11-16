@@ -66,6 +66,10 @@ namespace QuanLyQuanCafe.DAO
         {
             return DataProvider.Instance.ExcuteQuery("EXEC USP_GetListBillByDate @checkin , @checkOut", new object[] { checkIn, checkOut });
         }
+        public void UpdateBillAfterCheckOut(int id)
+        {
+            DataProvider.Instance.ExcuteNonQuery(string.Format("UPDATE dbo.Bill SET idTable = NULL WHERE id = {0}",id));
+        }
     }
     
 
