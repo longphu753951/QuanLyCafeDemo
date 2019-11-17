@@ -179,7 +179,22 @@ namespace QuanLyQuanCafe
             string name = txtTen.Text;
             int idCat = (cbLoaiDoUong.SelectedItem as CategoryDTO).ID;
             float price = (int)numUDGiaBan.Value;
+            if(price <= 0)
+            {
+                MessageBox.Show("Giá tiền không được bé hơn 0");
+                return;
+            }
             int idKiem = DrinkDAO.Instance.FindDrinkByName(name);
+            if(name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if(name.Count() < 3)
+            {
+                MessageBox.Show("Tên món không được bé hơn 8 ký tự");
+                return;
+            }
             if (idKiem != 0)
             {
                 MessageBox.Show("Món đã có trong danh sách");
@@ -206,7 +221,16 @@ namespace QuanLyQuanCafe
             int idCategory = (cbLoaiDoUong.SelectedItem as CategoryDTO).ID;
             float price = (int)numUDGiaBan.Value;
             int idDrink = int.Parse(txtID.Text);
-
+            if (name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Count() < 3)
+            {
+                MessageBox.Show("Tên món không được bé hơn 8 ký tự");
+                return;
+            }
             if (DrinkDAO.Instance.UpdateDrink(idDrink, name, idCategory, price))
             {
                 MessageBox.Show("Sửa món thành công");
@@ -259,6 +283,16 @@ namespace QuanLyQuanCafe
             string name = txtTenCat.Text;
 
             int idKiem = CategoryDAO.Instance.FindCategoryByName(name);
+            if (name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Count() < 3)
+            {
+                MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
+                return;
+            }
             if (idKiem != 0)
             {
                 MessageBox.Show("Món đã có trong danh sách");
@@ -283,7 +317,16 @@ namespace QuanLyQuanCafe
             string name = txtTenCat.Text;
             int idCategory = int.Parse(txtIDCat.Text);
 
-
+            if (name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Count() <3)
+            {
+                MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
+                return;
+            }
             if (CategoryDAO.Instance.UpdateDrinkCategory(idCategory, name))
             {
                 MessageBox.Show("Sửa món thành công");
@@ -422,16 +465,20 @@ namespace QuanLyQuanCafe
             string name = txtBanTen.Text;
             int idBan = int.Parse(txtBanID.Text);
 
-
-            if (TableDAO.Instance.CapNhatBan(idBan, name))
+            if (TableDAO.Instance.KiemTraTinhTrang(idBan) != "Có người")
             {
-                MessageBox.Show("Sửa bàn thành công");
-                loadBan();
+                if (TableDAO.Instance.CapNhatBan(idBan, name))
+                {
+                    MessageBox.Show("Sửa bàn thành công");
+                    loadBan();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi khi sửa");
+                }
             }
             else
-            {
-                MessageBox.Show("Có lỗi khi sửa");
-            }
+                MessageBox.Show("Bàn đang có người");
         }
 
         private void btnXoaCat_Click_1(object sender, EventArgs e)
@@ -442,7 +489,7 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Danh mục đã được xóa");
                 loadCategory();
                 loadCategoryForComboBox();
-
+                loadDrink();
 
             }
             else
@@ -466,6 +513,12 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mời nhập đúng mật khẩu xác nhận");
 
                 }
+                else if (matKhau.Contains(" "))
+                {
+                    MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
+                    return;
+                }
+
                 else if (AccountDAO.Instance.SuaMatKhau(id, matKhau))
                 {
                     MessageBox.Show("Đổi mật khẩu thành công");
@@ -527,6 +580,16 @@ namespace QuanLyQuanCafe
                 else
                     MessageBox.Show("Xóa thất bại");
             }
+
+        }
+
+        private void numUDGiaBan_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbLoaiDoUong_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -288,6 +288,7 @@
             this.numUDGiaBan.Name = "numUDGiaBan";
             this.numUDGiaBan.Size = new System.Drawing.Size(418, 40);
             this.numUDGiaBan.TabIndex = 1;
+            this.numUDGiaBan.ValueChanged += new System.EventHandler(this.numUDGiaBan_ValueChanged);
             // 
             // flp6
             // 
@@ -320,6 +321,7 @@
             this.cbLoaiDoUong.Name = "cbLoaiDoUong";
             this.cbLoaiDoUong.Size = new System.Drawing.Size(360, 41);
             this.cbLoaiDoUong.TabIndex = 2;
+            this.cbLoaiDoUong.SelectedIndexChanged += new System.EventHandler(this.cbLoaiDoUong_SelectedIndexChanged);
             // 
             // flpDoUongDTV
             // 

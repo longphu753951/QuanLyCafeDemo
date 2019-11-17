@@ -157,7 +157,11 @@ namespace QuanLyQuanCafe
                 int idBill = BillDAO.Instance.GetUncheckBillByTableID(table.ID);
                 string a = txtSoLuong.Text;
                 int count = int.Parse(txtSoLuong.Text);
-                
+                if(count == 0 || count >= 99)
+                {
+                    MessageBox.Show("Số lượng không được bằng 0 hoặc lớn hơn 99");
+                    return;
+                }
                 
                 if (drinkIDCache == 0)
                 {
