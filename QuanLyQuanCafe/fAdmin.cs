@@ -374,6 +374,11 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Mời nhập đầy đủ thông tin");
                 return;
             }
+            if (userName.Contains(' '))
+            {
+                MessageBox.Show("Tên tài khoản không được có khoảng trắng");
+                return;
+            }
             else if(AccountDAO.Instance.FindAccountByUserName(userName) != 0)
             {
                 MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
@@ -389,6 +394,11 @@ namespace QuanLyQuanCafe
                 if (matKhau != matKhauConfirm)
             {
                 MessageBox.Show("Mời nhập mật khẩu trùng với mật khẩu xác nhận");
+                return;
+            }
+            else if(matKhau.Count() >= 5)
+            {
+                MessageBox.Show("mật khẩu phải lớn hơn 8");
                 return;
             }
             else if (matKhau.Contains(" "))
@@ -536,9 +546,14 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mời nhập đầy đủ thông tin");
                     return;
                 }
-                else if (AccountDAO.Instance.FindAccountByUserName(userName) != id)
+                else if (AccountDAO.Instance.FindAccountByUserName(userName) > 0)
                 {
                     MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
+                    return;
+                }
+                else if(userName.Contains(' '))
+                {
+                    MessageBox.Show("Tên tài khoản không được có dấu cách");
                     return;
                 }
                 else if(loaiNhanVien == 2)

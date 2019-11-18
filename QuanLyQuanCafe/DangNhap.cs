@@ -47,7 +47,12 @@ namespace QuanLyQuanCafe
         {
             string tenTK = txtDangNhap.Text;
             string matKhau = txtMK.Text;
-            if (Login(tenTK,matKhau))
+            if(tenTK.Contains(" "))
+            {
+                MessageBox.Show("Vui lòng xóa khoảng trắng trên tài khoản");
+                return;
+            }
+            if (Login(tenTK, matKhau))
             {
                 Program.userName = tenTK;
                 Program.loaiChucVu = AccountDAO.Instance.LoaiChucVu(tenTK);
@@ -55,11 +60,14 @@ namespace QuanLyQuanCafe
                 this.Hide();
                 banHang.ShowDialog();
                 this.Show();
-                txtDangNhap.Text = txtMK.Text = "";
+               
 
             }
             else
-                MessageBox.Show("Thất bại");
+            {
+                MessageBox.Show("Đăng nhập thất bại");
+            }
+            txtMK.Text = "";
         }
 
         private void panelDangNhap_Paint(object sender, PaintEventArgs e)

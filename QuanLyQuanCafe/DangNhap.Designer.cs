@@ -36,8 +36,8 @@
             this.txtDangNhap = new System.Windows.Forms.TextBox();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.panelDangNhap = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +119,16 @@
             this.panelDangNhap.TabIndex = 7;
             this.panelDangNhap.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDangNhap_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("iCiel Simplifica", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(821, 209);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 35);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Reddy coffee";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -128,16 +138,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("iCiel Simplifica", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(826, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 35);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Cafe HTTP";
             // 
             // DangNhap
             // 
@@ -161,11 +161,11 @@
 
         #endregion
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.Button btnDangNhap;
+        public System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label lbMaNV;
         private System.Windows.Forms.Label lbMatKhau;
-        private System.Windows.Forms.TextBox txtDangNhap;
-        private System.Windows.Forms.TextBox txtMK;
+        public System.Windows.Forms.TextBox txtDangNhap;
+        public System.Windows.Forms.TextBox txtMK;
         private System.Windows.Forms.Panel panelDangNhap;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

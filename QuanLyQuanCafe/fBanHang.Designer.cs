@@ -71,7 +71,7 @@
             // 
             // fLPContainer
             // 
-            this.fLPContainer.BackColor = System.Drawing.SystemColors.Window;
+            this.fLPContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.fLPContainer.Controls.Add(this.gBTTSP);
             this.fLPContainer.Controls.Add(this.gBOrder);
             this.fLPContainer.Controls.Add(this.panelTinhTien);
@@ -87,7 +87,7 @@
             // 
             // gBTTSP
             // 
-            this.gBTTSP.BackColor = System.Drawing.SystemColors.Window;
+            this.gBTTSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gBTTSP.Controls.Add(this.flpDoUong);
             this.gBTTSP.Controls.Add(this.flpTTSP);
             this.gBTTSP.Controls.Add(this.cbLoaiSanPham);
@@ -100,7 +100,7 @@
             // 
             // flpDoUong
             // 
-            this.flpDoUong.BackColor = System.Drawing.SystemColors.Window;
+            this.flpDoUong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.flpDoUong.Location = new System.Drawing.Point(1, 111);
             this.flpDoUong.Name = "flpDoUong";
             this.flpDoUong.Size = new System.Drawing.Size(309, 367);
@@ -108,6 +108,7 @@
             // 
             // flpTTSP
             // 
+            this.flpTTSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.flpTTSP.Controls.Add(this.txtSoLuong);
             this.flpTTSP.Controls.Add(this.btnSoLuongXacNhan);
             this.flpTTSP.Controls.Add(this.btnXoa);
@@ -177,7 +178,7 @@
             // 
             // gBOrder
             // 
-            this.gBOrder.BackColor = System.Drawing.SystemColors.Window;
+            this.gBOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gBOrder.Controls.Add(this.lsvOrder);
             this.gBOrder.Location = new System.Drawing.Point(329, 178);
             this.gBOrder.Name = "gBOrder";
@@ -188,6 +189,7 @@
             // 
             // lsvOrder
             // 
+            this.lsvOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -226,7 +228,7 @@
             // 
             // panelTinhTien
             // 
-            this.panelTinhTien.BackColor = System.Drawing.SystemColors.Window;
+            this.panelTinhTien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panelTinhTien.Controls.Add(this.lbMonDangChon);
             this.panelTinhTien.Controls.Add(this.lbMon);
             this.panelTinhTien.Controls.Add(this.btnThanhToan);
@@ -353,7 +355,7 @@
             // 
             // gbBan
             // 
-            this.gbBan.BackColor = System.Drawing.SystemColors.Window;
+            this.gbBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbBan.Controls.Add(this.FLPBan);
             this.gbBan.Location = new System.Drawing.Point(883, 98);
             this.gbBan.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
@@ -367,7 +369,7 @@
             // FLPBan
             // 
             this.FLPBan.AutoScroll = true;
-            this.FLPBan.BackColor = System.Drawing.SystemColors.Window;
+            this.FLPBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.FLPBan.Location = new System.Drawing.Point(6, 16);
             this.FLPBan.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
             this.FLPBan.Name = "FLPBan";
@@ -377,7 +379,7 @@
             // 
             // flpStaff
             // 
-            this.flpStaff.BackColor = System.Drawing.SystemColors.Window;
+            this.flpStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.flpStaff.Controls.Add(this.btnDangXuat);
             this.flpStaff.Controls.Add(this.btnAdmin);
             this.flpStaff.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -450,7 +452,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txttotalPrice;
         private System.Windows.Forms.ComboBox cbLoaiSanPham;
-        private System.Windows.Forms.Button btnSoLuongXacNhan;
+        public System.Windows.Forms.Button btnSoLuongXacNhan;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.FlowLayoutPanel flpTTSP;
         private System.Windows.Forms.TextBox txtSoLuong;
