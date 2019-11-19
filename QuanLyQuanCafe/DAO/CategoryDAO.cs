@@ -47,7 +47,7 @@ namespace QuanLyQuanCafe.DAO
         {
             try
             {
-                string result = DataProvider.Instance.ExcuteScalar("SELECT id FROM dbo.DrinkCategory WHERE name LIKE N'%" + name + "%'").ToString();
+                string result = DataProvider.Instance.ExcuteScalar("SELECT id FROM dbo.DrinkCategory WHERE name = N'" + name + "'").ToString();
                 return int.Parse(result);
             }
             catch (NullReferenceException)

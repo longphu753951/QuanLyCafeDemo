@@ -190,7 +190,12 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Mời nhập tên");
                 return;
             }
-            if(name.Count() < 3)
+            if (name.Contains(' '))
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Count() < 3)
             {
                 MessageBox.Show("Tên món không được bé hơn 8 ký tự");
                 return;
@@ -229,6 +234,11 @@ namespace QuanLyQuanCafe
             if (name.Count() < 3)
             {
                 MessageBox.Show("Tên món không được bé hơn 8 ký tự");
+                return;
+            }
+            if (name.Contains(' '))
+            {
+                MessageBox.Show("Mời nhập tên");
                 return;
             }
             if (DrinkDAO.Instance.UpdateDrink(idDrink, name, idCategory, price))
@@ -293,6 +303,11 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
                 return;
             }
+            if (name.Contains(' '))
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
             if (idKiem != 0)
             {
                 MessageBox.Show("Món đã có trong danh sách");
@@ -325,6 +340,11 @@ namespace QuanLyQuanCafe
             if (name.Count() <3)
             {
                 MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
+                return;
+            }
+            if (name.Contains(' '))
+            {
+                MessageBox.Show("Mời nhập tên");
                 return;
             }
             if (CategoryDAO.Instance.UpdateDrinkCategory(idCategory, name))
