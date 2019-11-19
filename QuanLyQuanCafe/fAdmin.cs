@@ -179,9 +179,9 @@ namespace QuanLyQuanCafe
             string name = txtTen.Text;
             int idCat = (cbLoaiDoUong.SelectedItem as CategoryDTO).ID;
             float price = (int)numUDGiaBan.Value;
-            if(price <= 0)
+            if(price < 5000)
             {
-                MessageBox.Show("Giá tiền không được bé hơn 0");
+                MessageBox.Show("Giá tiền không được bé hơn 5000");
                 return;
             }
             int idKiem = DrinkDAO.Instance.FindDrinkByName(name);
@@ -197,7 +197,7 @@ namespace QuanLyQuanCafe
             }
             if (name.Count() < 3)
             {
-                MessageBox.Show("Tên món không được bé hơn 8 ký tự");
+                MessageBox.Show("Tên món không được bé hơn 3 ký tự");
                 return;
             }
             if (idKiem != 0)
@@ -239,6 +239,11 @@ namespace QuanLyQuanCafe
             if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
             {
                 MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
+                return;
+            }
+            if (price < 5000)
+            {
+                MessageBox.Show("Giá tiền không được bé hơn 5000");
                 return;
             }
             if (DrinkDAO.Instance.UpdateDrink(idDrink, name, idCategory, price))
