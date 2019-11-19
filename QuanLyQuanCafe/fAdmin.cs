@@ -190,9 +190,9 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Mời nhập tên");
                 return;
             }
-            if (name.Contains(' '))
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
             {
-                MessageBox.Show("Mời nhập tên");
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
                 return;
             }
             if (name.Count() < 3)
@@ -236,9 +236,9 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Tên món không được bé hơn 8 ký tự");
                 return;
             }
-            if (name.Contains(' '))
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
             {
-                MessageBox.Show("Mời nhập tên");
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
                 return;
             }
             if (DrinkDAO.Instance.UpdateDrink(idDrink, name, idCategory, price))
@@ -303,9 +303,9 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
                 return;
             }
-            if (name.Contains(' '))
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
             {
-                MessageBox.Show("Mời nhập tên");
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
                 return;
             }
             if (idKiem != 0)
@@ -342,9 +342,9 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Tên loại món không được bé hơn 8 ký tự");
                 return;
             }
-            if (name.Contains(' '))
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
             {
-                MessageBox.Show("Mời nhập tên");
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
                 return;
             }
             if (CategoryDAO.Instance.UpdateDrinkCategory(idCategory, name))
