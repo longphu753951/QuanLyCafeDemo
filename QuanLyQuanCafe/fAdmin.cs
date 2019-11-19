@@ -396,9 +396,9 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Mời nhập mật khẩu trùng với mật khẩu xác nhận");
                 return;
             }
-            else if(matKhau.Count() >= 5)
+            else if(matKhau.Count() >= 8)
             {
-                MessageBox.Show("mật khẩu phải lớn hơn 8");
+                MessageBox.Show("mật khẩu phải tối thiểu 8 ký tự");
                 return;
             }
             else if (matKhau.Contains(" "))
@@ -528,7 +528,11 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
                     return;
                 }
-
+                if (matKhau.Count() < 8)
+                {
+                    MessageBox.Show("Mật khẩu phải có tối thiểu 8 ký tự");
+                    return;
+                }
                 else if (AccountDAO.Instance.SuaMatKhau(id, matKhau))
                 {
                     MessageBox.Show("Đổi mật khẩu thành công");
@@ -546,7 +550,7 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mời nhập đầy đủ thông tin");
                     return;
                 }
-                else if (AccountDAO.Instance.FindAccountByUserName(userName) > 0)
+                else if (AccountDAO.Instance.FindAccountByUserName(userName) != id)
                 {
                     MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
                     return;
