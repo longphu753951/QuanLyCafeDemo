@@ -153,24 +153,31 @@ namespace QuanLyQuanCafe
         }
         private void txtID_TextChanged_1(object sender, EventArgs e)
         {
-            if (dtvDoUong.SelectedCells.Count > 0)
+            try
             {
-                int id = (int)dtvDoUong.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
-
-                CategoryDTO category = CategoryDAO.Instance.GetCategoryByID(id);
-                int index = -1;
-                int i = 0;
-                foreach (CategoryDTO item in cbLoaiDoUong.Items)
+                if (dtvDoUong.SelectedCells.Count > 0)
                 {
-                    if (item.ID == category.ID)
-                    {
-                        index = i;
-                        break;
-                    }
-                    i++;
-                }
-                cbLoaiDoUong.SelectedIndex = index;
+                    int id = (int)dtvDoUong.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
 
+                    CategoryDTO category = CategoryDAO.Instance.GetCategoryByID(id);
+                    int index = -1;
+                    int i = 0;
+                    foreach (CategoryDTO item in cbLoaiDoUong.Items)
+                    {
+                        if (item.ID == category.ID)
+                        {
+                            index = i;
+                            break;
+                        }
+                        i++;
+                    }
+                    cbLoaiDoUong.SelectedIndex = index;
+
+                }
+            }
+            catch (NullReferenceException)
+            {
+                return;
             }
         }
 
