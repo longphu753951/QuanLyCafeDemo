@@ -177,7 +177,7 @@ namespace QuanLyQuanCafe
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Tất cả đồ uống đã được xóa");
+                MessageBox.Show("Tất cả đồ uống đã được xóa ");
                 return;
             }
         }
@@ -423,17 +423,18 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Mời nhập mật khẩu");
                 return;
             }
+            else if (matKhau.Count() >= 8)
+            {
+                MessageBox.Show("mật khẩu phải tối thiểu 8 ký tự");
+                return;
+            }
             else
                 if (matKhau != matKhauConfirm)
             {
                 MessageBox.Show("Mời nhập mật khẩu trùng với mật khẩu xác nhận");
                 return;
             }
-            else if(matKhau.Count() >= 8)
-            {
-                MessageBox.Show("mật khẩu phải tối thiểu 8 ký tự");
-                return;
-            }
+            
             else if (matKhau.Contains(" "))
             {
                 MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
@@ -601,9 +602,14 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mời nhập đầy đủ thông tin");
                     return;
                 }
-                else if (AccountDAO.Instance.FindAccountByUserName(userName) != id)
+                else if (AccountDAO.Instance.FindAccountByUserName(userName) != 0 && AccountDAO.Instance.FindAccountByUserName(userName)!= id)
                 {
                     MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
+                    return;
+                }
+                if (Program.userName == userName)
+                {
+                    MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
                     return;
                 }
                 else if(userName.Contains(' '))
