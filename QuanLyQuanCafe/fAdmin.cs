@@ -462,7 +462,16 @@ namespace QuanLyQuanCafe
                 MessageBox.Show("Bàn đã có trong danh sách");
                 return;
             }
-
+            if (name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
+            {
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
+                return;
+            }
             else
                 if (TableDAO.Instance.ThemBan(name))
             {
@@ -499,7 +508,16 @@ namespace QuanLyQuanCafe
         {
             string name = txtBanTen.Text;
             int idBan = int.Parse(txtBanID.Text);
-
+            if (name == "")
+            {
+                MessageBox.Show("Mời nhập tên");
+                return;
+            }
+            if (name.Substring(0, 1) == " " || name.Substring(name.Length - 1, 1) == " ")
+            {
+                MessageBox.Show("Vui lòng xóa khoảng trắng ở đầu dòng hoặc cuối dòng");
+                return;
+            }
             if (TableDAO.Instance.KiemTraTinhTrang(idBan) != "Có người")
             {
                 if (TableDAO.Instance.CapNhatBan(idBan, name))
