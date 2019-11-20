@@ -311,8 +311,9 @@ namespace QuanLyQuanCafe
             f.InsertDrink += f_InsertDrink;
             f.DeleteDrink += f_DeleteDrink;
             f.UpdateDrink += f_UpdateDrink;
+            this.Hide();
             f.ShowDialog();
-            this.Close();
+            
         }
 
         void f_UpdateDrink(object sender, EventArgs e)
