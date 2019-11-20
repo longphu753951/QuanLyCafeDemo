@@ -173,10 +173,11 @@ namespace QuanLyQuanCafe
                     }
                     cbLoaiDoUong.SelectedIndex = index;
 
-                }
+                } 
             }
             catch (NullReferenceException)
             {
+                MessageBox.Show("Tất cả đồ uống đã được xóa");
                 return;
             }
         }
