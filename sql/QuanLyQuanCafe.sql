@@ -299,4 +299,3 @@ BEGIN
 	INSERT dbo.Drink(name,idCategory,price)VALUES( @name , @idCategory , @price )
 END
 GO
-SELECT * FROM dbo.Bill

@@ -85,5 +85,11 @@ namespace QuanLyQuanCafe.DAO
             int result = DataProvider.Instance.ExcuteNonQuery(query);
             return result > 0;
         }
+        public int nhanID(string tenTK)
+        {
+            string query = string.Format("SELECT id FROM dbo.Account WHERE UserName = N'"+tenTK+"'");
+            int result = int.Parse(DataProvider.Instance.ExcuteScalar(query).ToString());
+            return result;
+        }
     }
 }

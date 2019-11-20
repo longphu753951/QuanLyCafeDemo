@@ -54,7 +54,7 @@ namespace QuanLyQuanCafe
             }
             if (Login(tenTK, matKhau))
             {
-                Program.userName = tenTK;
+                Program.id = AccountDAO.Instance.nhanID(tenTK);
                 Program.loaiChucVu = AccountDAO.Instance.LoaiChucVu(tenTK);
                 fBanHang banHang = new fBanHang();
                 this.Hide();

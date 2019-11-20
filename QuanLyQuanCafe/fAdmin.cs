@@ -580,6 +580,11 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
                     return;
                 }
+                if (Program.id == id)
+                {
+                    MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
+                    return;
+                }
                 if (matKhau.Count() < 8)
                 {
                     MessageBox.Show("Mật khẩu phải có tối thiểu 8 ký tự");
@@ -607,7 +612,7 @@ namespace QuanLyQuanCafe
                     MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
                     return;
                 }
-                if (Program.userName == userName)
+                if (Program.id == id)
                 {
                     MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
                     return;
@@ -644,7 +649,7 @@ namespace QuanLyQuanCafe
             int id = Convert.ToInt32(txtIDAC.Text);
             string displayName = txtDisplayName.Text;
             string userName = txtUserName.Text;
-            if (Program.userName == userName)
+            if (Program.id == id)
             {
                 MessageBox.Show("Không được xóa tài khoản đang được đăng nhập");
                 return;

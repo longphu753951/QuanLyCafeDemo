@@ -9,7 +9,7 @@ namespace QuanLyQuanCafe
     static class Program
     {
         public static int loaiChucVu = 0;
-        public static string userName = "";
+        public static int id = 0;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
