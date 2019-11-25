@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,10 +18,22 @@ namespace QuanLyQuanCafe.DAO
             private set { instance = value; }
         }
         private AccountDAO() { }
+        MD5 md = MD5.Create();
+        private string MaHoaMK(string mk)
+        {
+            byte[] input = System.Text.Encoding.ASCII.GetBytes(mk);
+            byte[] hash = md.ComputeHash(input);
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
         public bool Login(string userName, string password)
         {
-            string query = "SELECT * FROM dbo.Account WHERE UserName = N'" + userName + "' AND matKhau like N'" + password+ "' ";
-            DataTable result = DataProvider.Instance.ExcuteQuery(query);
+            string query = "EXEC dbo.USP_LOGIN @userName , @password";
+            DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] {userName, MaHoaMK(password)});
             return result.Rows.Count> 0;
         }
         public int LoaiChucVu(string userName)
@@ -30,18 +43,13 @@ namespace QuanLyQuanCafe.DAO
             return result;
         }
         
-        public bool InsertAccount(string userName, string displayName,string matKhau ,int type)
+        public bool InsertAccount(string userName, string displayName,string password, int type)
         {
-            string query = string.Format("INSERT dbo.Account ( UserName , DisplayName ,matKhau, Type ) VALUES ( N'{0}' , N'{1}' , N'{2}', {3} ) ",userName,displayName,matKhau,type);
+            string query = string.Format("INSERT dbo.Account ( UserName , DisplayName ,matKhau, Type ) VALUES ( N'{0}' , N'{1}' , N'{2}', {3} ) ",userName,displayName, MaHoaMK(password), type);
             int result = DataProvider.Instance.ExcuteNonQuery(query);
             return result > 0;
         }
-        public bool UpdateAccount(int id,string userName, string displayName, int type)
-        {
-            string query = string.Format("UPDATE dbo.Account SET DisplayName = {0} , UserName = {1} , Type = {2} WHERE id = {3}", userName, displayName, type,id);
-            int result = DataProvider.Instance.ExcuteNonQuery(query);
-            return result > 0;
-        }
+        
         public bool DeteleAccount(int id)
         {
             string query = string.Format("DELETE dbo.Account WHERE id = {0}", id);
@@ -75,7 +83,7 @@ namespace QuanLyQuanCafe.DAO
         }
         public bool SuaMatKhau(int id, string password)
         {
-            string query = string.Format("UPDATE dbo.Account SET matKhau = N'{0}' WHERE id = {1}", password, id);
+            string query = string.Format("UPDATE dbo.Account SET matKhau = N'{0}' WHERE id = {1}", MaHoaMK(password), id);
             int result = DataProvider.Instance.ExcuteNonQuery(query);
             return result > 0;
         }
