@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,14 +56,15 @@ namespace QuanLyQuanCafe
         {
             lsvOrder.Items.Clear();
             List<MenuDTO> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
-            float totalPrice = 0;
+            decimal totalPrice = 0;
             foreach(MenuDTO item in listBillInfo)
             {
                 ListViewItem lsvItem = new ListViewItem(item.DrinkName.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString());
                 lsvItem.SubItems.Add(item.Price.ToString());
-                lsvItem.SubItems.Add(item.TotalPrice.ToString());
-                totalPrice += int.Parse(item.TotalPrice.ToString());
+                lsvItem.SubItems.Add((decimal.Parse(item.TotalPrice.ToString(), NumberStyles.Float)).ToString());
+                
+                totalPrice += decimal.Parse(item.TotalPrice.ToString(), NumberStyles.Float);
                 lsvOrder.Items.Add(lsvItem);
             }
             

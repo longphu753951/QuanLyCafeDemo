@@ -299,3 +299,12 @@ BEGIN
 	INSERT dbo.Drink(name,idCategory,price)VALUES( @name , @idCategory , @price )
 END
 GO
+CREATE PROC USP_LOGIN
+@userName NVARCHAR(100), @password NVARCHAR(100)
+AS
+BEGIN
+	SELECT * FROM dbo.Account WHERE UserName = @userName AND matKhau = @password
+END
+GO
+
+
