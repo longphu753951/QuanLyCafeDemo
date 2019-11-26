@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace QuanLyQuanCafe
         BindingSource AccountList = new BindingSource();
         private static int w = int.Parse(Screen.PrimaryScreen.Bounds.Width.ToString());
         private int loaiNhanVien =2;
+        public static string idDangChon = null;
         private static int h = int.Parse(Screen.PrimaryScreen.Bounds.Height.ToString());
         public fAdmin()
         {
@@ -58,8 +60,10 @@ namespace QuanLyQuanCafe
             flpBan1.Height=flp8.Height=flp1.Height = flpDoUongDTV.Height * 14 / 100;
             btnSuaBan.Height = btnXoaBan.Height = btnThemBan.Height = btnThemCat.Height = btnThemCat.Height = btnXoaCat.Height = btnSuaCat.Height = btnThem.Height = btnXoa.Height = btnSua.Height = flp1.Height * 90 / 100;
             flp2.Height = ctnThongTinDoUong.Height * 15 / 100;
-            flp3.Height = flp4.Height = flp5.Height = flp6.Height = ctnThongTinDoUong.Height * 12 / 100;
-            flp2.Width=flp3.Width = flp4.Width = flp5.Width = flp6.Width = ctnThongTinDoUong.Width * 90 / 100 ;
+            flpNutSuaMK.Height=flp3.Height = flp4.Height = flp5.Height = flp6.Height = ctnThongTinDoUong.Height * 12 / 100;
+            flpNutSuaMK.Width=flp2.Width=flp3.Width = flp4.Width = flp5.Width = flp6.Width = ctnThongTinDoUong.Width * 90 / 100 ;
+            flpNutSuaMK.Height = tcContainer.Height * 24 / 100;
+            btnSuaMK.Size = new Size(flpNutSuaMK.Width * 25 / 100, flpNutSuaMK.Height * 60 / 100);
             loadTaiKhoanAdmin();
 
 
@@ -73,7 +77,7 @@ namespace QuanLyQuanCafe
             flpButtonTK.Height = flpTaiKhoan.Height - dtvTaiKhoan.Height - 5;
             btnThemTK.Height = btnSuaTK.Height = btnXoaTK.Height = flpButtonTK.Height * 70 / 100;
             btnThemTK.Width = btnSuaTK.Width = btnXoaTK.Width = flpButtonTK.Width * 28 / 100;
-            flp19.Width = flp13.Width = flp14.Width = flp15.Width = flp16.Width = flp17.Width = flp18.Width = tcContainer.Width - flpTaiKhoan.Width;
+            flp19.Width = flp13.Width = flp14.Width = flp15.Width = flp18.Width = tcContainer.Width - flpTaiKhoan.Width;
         }
         void loadBan()
         {
@@ -398,67 +402,11 @@ namespace QuanLyQuanCafe
 
         private void btnThemTK_Click(object sender, EventArgs e)
         {
-            string displayName = txtDisplayName.Text;
-            string userName = txtUserName.Text;
-            string matKhau = txtMatKhau.Text;
-            string matKhauConfirm = txtMKConfirm.Text;
-            if (displayName == "" || userName == "")
-            {
-                MessageBox.Show("Mời nhập đầy đủ thông tin");
-                return;
-            }
-            if (userName.Contains(' '))
-            {
-                MessageBox.Show("Tên tài khoản không được có khoảng trắng");
-                return;
-            }
-            else if(AccountDAO.Instance.FindAccountByUserName(userName) != 0)
-            {
-                MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
-                return;
-            }
-            else
-                if (matKhau == "")
-            {
-                MessageBox.Show("Mời nhập mật khẩu");
-                return;
-            }
-            else if (matKhau.Count() >= 8)
-            {
-                MessageBox.Show("mật khẩu phải tối thiểu 8 ký tự");
-                return;
-            }
-            else
-                if (matKhau != matKhauConfirm)
-            {
-                MessageBox.Show("Mời nhập mật khẩu trùng với mật khẩu xác nhận");
-                return;
-            }
-            
-            else if (matKhau.Contains(" "))
-            {
-                MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
-                return;
-            }
-            else if (loaiNhanVien == 2)
-            {
-                MessageBox.Show("Mời chọn loại chức vụ");
-                return;
-            }
-            else
-            {
-                if (AccountDAO.Instance.InsertAccount(userName, displayName, matKhau, loaiNhanVien))
-                {
-                    MessageBox.Show("Thêm tài khoản thành công");
-                    loadAccountList();
-                    txtMatKhau.Text = "";
-                    txtMKConfirm.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi khi thêm");
-                }
-            }
+            ThemTaiKhoan a = new ThemTaiKhoan();
+            Enabled = false;
+            a.ShowDialog();
+            Enabled = true;
+            loadAccountList();
         }
 
         private void btnThemBan_Click(object sender, EventArgs e)
@@ -565,82 +513,51 @@ namespace QuanLyQuanCafe
             int id = Convert.ToInt32(txtIDAC.Text);
             string displayName = txtDisplayName.Text;
             string userName = txtUserName.Text;
-            string matKhau = txtMatKhau.Text;
-            string matKhauConfirm = txtMKConfirm.Text;
-            
-            if (matKhau != "")
+            if (displayName == "" || userName == "")
             {
-                if (matKhauConfirm != matKhau)
+                MessageBox.Show("Mời nhập đầy đủ thông tin");
+                return;
+            }
+            else if (AccountDAO.Instance.FindAccountByUserName(userName) != 0 && AccountDAO.Instance.FindAccountByUserName(userName) != id)
+            {
+                MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
+                return;
+            }
+            if (Program.id == id)
+            {
+                MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
+                return;
+            }
+            else if (userName.Contains(' '))
+            {
+                MessageBox.Show("Tên tài khoản không được có dấu cách");
+                return;
+            }
+            else if (loaiNhanVien == 2)
+            {
+                MessageBox.Show("Mời chọn loại nhân viên");
+                return;
+            }
+            else
+            {
+                if (AccountDAO.Instance.SuaTaiKhoan(id, displayName, userName, loaiNhanVien))
                 {
-                    MessageBox.Show("Mời nhập đúng mật khẩu xác nhận");
-
-                }
-                else if (matKhau.Contains(" "))
-                {
-                    MessageBox.Show("Mật khẩu không được chứa ký tự rỗng");
-                    return;
-                }
-                if (Program.id == id)
-                {
-                    MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
-                    return;
-                }
-                if (matKhau.Count() < 8)
-                {
-                    MessageBox.Show("Mật khẩu phải có tối thiểu 8 ký tự");
-                    return;
-                }
-                else if (AccountDAO.Instance.SuaMatKhau(id, matKhau))
-                {
-                    MessageBox.Show("Đổi mật khẩu thành công");
+                    MessageBox.Show("Đổi thông tin tài khoản thành công");
                     loadAccountList();
+                    loaiNhanVien = 2;
+                    if(rbtnAdmin.Checked == true)
+                    {
+                        rbtnAdmin.Checked = false;
+                    }
+                    else
+                    {
+                        rbtnNhanVien.Checked = false;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Có lỗi khi sửa");
                 }
-            }
-            else
-            {
-                if (displayName == "" || userName == "")
-                {
-                    MessageBox.Show("Mời nhập đầy đủ thông tin");
-                    return;
-                }
-                else if (AccountDAO.Instance.FindAccountByUserName(userName) != 0 && AccountDAO.Instance.FindAccountByUserName(userName)!= id)
-                {
-                    MessageBox.Show("Tên tài khoản đã có, vui lòng đặt lại");
-                    return;
-                }
-                if (Program.id == id)
-                {
-                    MessageBox.Show("Không được sửa tài khoản đang được đăng nhập");
-                    return;
-                }
-                else if(userName.Contains(' '))
-                {
-                    MessageBox.Show("Tên tài khoản không được có dấu cách");
-                    return;
-                }
-                else if(loaiNhanVien == 2)
-                {
-                    MessageBox.Show("Mời chọn loại nhân viên");
-                    return;
-                }
-                else
-                {
-                    if (AccountDAO.Instance.SuaTaiKhoan(id,displayName, userName, loaiNhanVien))
-                    {
-                        MessageBox.Show("Đổi thông tin tài khoản thành công");
-                        loadAccountList();
-                        loaiNhanVien = 2;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi khi sửa");
-                    }
-                }
-                
             }
         }
 
@@ -672,6 +589,60 @@ namespace QuanLyQuanCafe
         private void cbLoaiDoUong_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDisplayName_TextChanged(object sender, EventArgs e)
+        {
+            string a = txtDisplayName.Text.ToString();
+            string pattern = @"[^a-zA-Z\s]";
+            if (Regex.IsMatch(a, pattern))
+            {
+                btnSuaTK.Enabled = false;
+
+                label9.Text = "Tên hiển thị không được có số và ký tự đặc biệt";
+            }
+            else
+            {
+                btnSuaTK.Enabled = true;
+
+                label9.Text = "";
+            }
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            string a = txtUserName.Text.ToString();
+            string pattern = @"[^\d]";
+            if (Regex.IsMatch(a, pattern) || a.Length < 10)
+            {
+                btnSuaTK.Enabled = false;
+                label9.Text = "Tài khoản không được có chữ, ký tự đặc biệt và phải trên 10 ký tự";
+            }
+            else
+            {
+                btnSuaTK.Enabled = true;
+
+                label9.Text = "";
+            }
+        }
+
+        private void txtIDAC_TextChanged(object sender, EventArgs e)
+        {
+            idDangChon = txtIDAC.Text.ToString();
+        }
+
+        private void btnSuaMK_Click(object sender, EventArgs e)
+        {
+            DoiMatKhau a = new DoiMatKhau();
+            Enabled = false;
+            a.ShowDialog();
+            Enabled = true;
+            loadAccountList();
         }
     }
 }

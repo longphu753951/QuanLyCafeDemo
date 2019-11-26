@@ -97,16 +97,13 @@
             this.flp15 = new System.Windows.Forms.FlowLayoutPanel();
             this.lbUserName = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.flp16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbMK = new System.Windows.Forms.Label();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.flp17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbMKC = new System.Windows.Forms.Label();
-            this.txtMKConfirm = new System.Windows.Forms.TextBox();
             this.flp13 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.rbtnNhanVien = new System.Windows.Forms.RadioButton();
             this.rbtnAdmin = new System.Windows.Forms.RadioButton();
+            this.flpNutSuaMK = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnSuaMK = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.flpTaiKhoan = new System.Windows.Forms.FlowLayoutPanel();
             this.dtvTaiKhoan = new System.Windows.Forms.DataGridView();
             this.flpButtonTK = new System.Windows.Forms.FlowLayoutPanel();
@@ -147,9 +144,8 @@
             this.flp19.SuspendLayout();
             this.flp14.SuspendLayout();
             this.flp15.SuspendLayout();
-            this.flp16.SuspendLayout();
-            this.flp17.SuspendLayout();
             this.flp13.SuspendLayout();
+            this.flpNutSuaMK.SuspendLayout();
             this.flpTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtvTaiKhoan)).BeginInit();
             this.flpButtonTK.SuspendLayout();
@@ -796,6 +792,7 @@
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Admin";
             this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // flp18
             // 
@@ -804,9 +801,8 @@
             this.flp18.Controls.Add(this.flp19);
             this.flp18.Controls.Add(this.flp14);
             this.flp18.Controls.Add(this.flp15);
-            this.flp18.Controls.Add(this.flp16);
-            this.flp18.Controls.Add(this.flp17);
             this.flp18.Controls.Add(this.flp13);
+            this.flp18.Controls.Add(this.flpNutSuaMK);
             this.flp18.Location = new System.Drawing.Point(546, 11);
             this.flp18.Name = "flp18";
             this.flp18.Size = new System.Drawing.Size(582, 536);
@@ -843,6 +839,7 @@
             this.txtIDAC.Name = "txtIDAC";
             this.txtIDAC.Size = new System.Drawing.Size(444, 40);
             this.txtIDAC.TabIndex = 2;
+            this.txtIDAC.TextChanged += new System.EventHandler(this.txtIDAC_TextChanged);
             // 
             // flp14
             // 
@@ -874,6 +871,7 @@
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(444, 40);
             this.txtDisplayName.TabIndex = 2;
+            this.txtDisplayName.TextChanged += new System.EventHandler(this.txtDisplayName_TextChanged);
             // 
             // flp15
             // 
@@ -904,68 +902,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(444, 40);
             this.txtUserName.TabIndex = 1;
-            // 
-            // flp16
-            // 
-            this.flp16.BackColor = System.Drawing.SystemColors.Window;
-            this.flp16.Controls.Add(this.lbMK);
-            this.flp16.Controls.Add(this.txtMatKhau);
-            this.flp16.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flp16.Location = new System.Drawing.Point(3, 270);
-            this.flp16.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.flp16.Name = "flp16";
-            this.flp16.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.flp16.Size = new System.Drawing.Size(593, 77);
-            this.flp16.TabIndex = 3;
-            // 
-            // lbMK
-            // 
-            this.lbMK.AutoSize = true;
-            this.lbMK.Location = new System.Drawing.Point(3, 16);
-            this.lbMK.Name = "lbMK";
-            this.lbMK.Size = new System.Drawing.Size(134, 33);
-            this.lbMK.TabIndex = 0;
-            this.lbMK.Text = "Mật khẩu";
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new System.Drawing.Point(143, 16);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(444, 40);
-            this.txtMatKhau.TabIndex = 2;
-            // 
-            // flp17
-            // 
-            this.flp17.BackColor = System.Drawing.SystemColors.Window;
-            this.flp17.Controls.Add(this.lbMKC);
-            this.flp17.Controls.Add(this.txtMKConfirm);
-            this.flp17.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flp17.Location = new System.Drawing.Point(3, 356);
-            this.flp17.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.flp17.Name = "flp17";
-            this.flp17.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.flp17.Size = new System.Drawing.Size(593, 99);
-            this.flp17.TabIndex = 4;
-            // 
-            // lbMKC
-            // 
-            this.lbMKC.AutoSize = true;
-            this.lbMKC.Location = new System.Drawing.Point(3, 16);
-            this.lbMKC.Name = "lbMKC";
-            this.lbMKC.Size = new System.Drawing.Size(187, 33);
-            this.lbMKC.TabIndex = 0;
-            this.lbMKC.Text = "Xác định MK:";
-            // 
-            // txtMKConfirm
-            // 
-            this.txtMKConfirm.Location = new System.Drawing.Point(3, 49);
-            this.txtMKConfirm.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.txtMKConfirm.Name = "txtMKConfirm";
-            this.txtMKConfirm.PasswordChar = '*';
-            this.txtMKConfirm.Size = new System.Drawing.Size(444, 40);
-            this.txtMKConfirm.TabIndex = 2;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // flp13
             // 
@@ -974,7 +911,7 @@
             this.flp13.Controls.Add(this.rbtnNhanVien);
             this.flp13.Controls.Add(this.rbtnAdmin);
             this.flp13.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flp13.Location = new System.Drawing.Point(3, 461);
+            this.flp13.Location = new System.Drawing.Point(3, 267);
             this.flp13.Name = "flp13";
             this.flp13.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.flp13.Size = new System.Drawing.Size(593, 87);
@@ -1012,6 +949,39 @@
             this.rbtnAdmin.Text = "Admin";
             this.rbtnAdmin.UseVisualStyleBackColor = true;
             this.rbtnAdmin.CheckedChanged += new System.EventHandler(this.rbtnNhanVien_CheckedChanged);
+            // 
+            // flpNutSuaMK
+            // 
+            this.flpNutSuaMK.BackColor = System.Drawing.SystemColors.Window;
+            this.flpNutSuaMK.Controls.Add(this.btnSuaMK);
+            this.flpNutSuaMK.Controls.Add(this.label9);
+            this.flpNutSuaMK.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpNutSuaMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpNutSuaMK.Location = new System.Drawing.Point(3, 360);
+            this.flpNutSuaMK.Name = "flpNutSuaMK";
+            this.flpNutSuaMK.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flpNutSuaMK.Size = new System.Drawing.Size(560, 164);
+            this.flpNutSuaMK.TabIndex = 4;
+            // 
+            // btnSuaMK
+            // 
+            this.btnSuaMK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSuaMK.Location = new System.Drawing.Point(468, 23);
+            this.btnSuaMK.Name = "btnSuaMK";
+            this.btnSuaMK.Size = new System.Drawing.Size(89, 51);
+            this.btnSuaMK.TabIndex = 4;
+            this.btnSuaMK.Text = "Sửa mật khẩu";
+            this.btnSuaMK.UseVisualStyleBackColor = true;
+            this.btnSuaMK.Click += new System.EventHandler(this.btnSuaMK_Click);
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(240, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(222, 109);
+            this.label9.TabIndex = 5;
             // 
             // flpTaiKhoan
             // 
@@ -1140,12 +1110,9 @@
             this.flp14.PerformLayout();
             this.flp15.ResumeLayout(false);
             this.flp15.PerformLayout();
-            this.flp16.ResumeLayout(false);
-            this.flp16.PerformLayout();
-            this.flp17.ResumeLayout(false);
-            this.flp17.PerformLayout();
             this.flp13.ResumeLayout(false);
             this.flp13.PerformLayout();
+            this.flpNutSuaMK.ResumeLayout(false);
             this.flpTaiKhoan.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtvTaiKhoan)).EndInit();
             this.flpButtonTK.ResumeLayout(false);
@@ -1228,18 +1195,15 @@
         private System.Windows.Forms.FlowLayoutPanel flp15;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.FlowLayoutPanel flp16;
-        private System.Windows.Forms.Label lbMK;
-        private System.Windows.Forms.FlowLayoutPanel flp17;
-        private System.Windows.Forms.Label lbMKC;
         private System.Windows.Forms.TextBox txtDisplayName;
-        private System.Windows.Forms.TextBox txtMKConfirm;
-        private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbtnNhanVien;
         private System.Windows.Forms.RadioButton rbtnAdmin;
         private System.Windows.Forms.FlowLayoutPanel flp19;
         private System.Windows.Forms.Label lbIDAC;
         private System.Windows.Forms.TextBox txtIDAC;
+        private System.Windows.Forms.FlowLayoutPanel flpNutSuaMK;
+        private System.Windows.Forms.Button btnSuaMK;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -93,6 +93,8 @@
             this.txtDangNhap.Name = "txtDangNhap";
             this.txtDangNhap.Size = new System.Drawing.Size(395, 40);
             this.txtDangNhap.TabIndex = 5;
+            this.txtDangNhap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDangNhap_KeyDown);
+            this.txtDangNhap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtDangNhap_MouseDown);
             // 
             // txtMK
             // 
@@ -102,6 +104,8 @@
             this.txtMK.Size = new System.Drawing.Size(395, 40);
             this.txtMK.TabIndex = 6;
             this.txtMK.UseSystemPasswordChar = true;
+            this.txtMK.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDangNhap_KeyDown);
+            this.txtMK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtDangNhap_MouseDown);
             // 
             // panelDangNhap
             // 

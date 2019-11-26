@@ -74,5 +74,19 @@ namespace QuanLyQuanCafe
         {
 
         }
+
+        private void txtDangNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
+        private void txtDangNhap_MouseDown(object sender, MouseEventArgs e)
+        {
+            TextBox a = sender as TextBox;
+            if (e.Button == MouseButtons.Right)
+            {
+                a.ShortcutsEnabled = false;
+            }
+        }
     }
 }
