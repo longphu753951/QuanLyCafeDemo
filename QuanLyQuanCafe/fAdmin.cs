@@ -385,6 +385,7 @@ namespace QuanLyQuanCafe
                 f.ShowDialog();
                 this.Close();
             }
+            
         }
 
 
@@ -574,7 +575,10 @@ namespace QuanLyQuanCafe
             else 
             {
                 if (AccountDAO.Instance.DeteleAccount(id))
+                {
                     MessageBox.Show("Xóa tài khoản thành công");
+                    loadAccountList();
+                }
                 else
                     MessageBox.Show("Xóa thất bại");
             }
