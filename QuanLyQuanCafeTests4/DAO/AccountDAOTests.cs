@@ -123,5 +123,12 @@ namespace QuanLyQuanCafe.DAO.Tests
             bool kq = AccountDAO.Instance.DeteleAccount(id);
             Assert.AreEqual(true, kq);
         }
+        [TestMethod()]
+        public void testMaHoa()
+        {
+            string a = "HueNguSiDan";
+            string actual = AccountDAO.Instance.MaHoaMK(a);
+            Assert.AreNotEqual(a, actual);
+        }
     }
 }

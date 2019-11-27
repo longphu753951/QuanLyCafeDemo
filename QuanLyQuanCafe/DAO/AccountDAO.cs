@@ -19,7 +19,7 @@ namespace QuanLyQuanCafe.DAO
         }
         private AccountDAO() { }
         MD5 md = MD5.Create();
-        private string MaHoaMK(string mk)
+        public string MaHoaMK(string mk)
         {
             byte[] input = System.Text.Encoding.ASCII.GetBytes(mk);
             byte[] hash = md.ComputeHash(input);
